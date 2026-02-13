@@ -1,5 +1,6 @@
 # Virtual Environment
 venv/
+.venv/
 .env
 
 # Python
@@ -8,9 +9,11 @@ __pycache__/
 
 # Django
 db.sqlite3
+media/
 
 # VS Code
 .vscode/
 
-# Windows
+# OS
 .DS_Store
+Thumbs.db
