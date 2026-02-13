@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - {{ field.name }}</title>
+</head>
+<body>
+    <header>
+        <h1>Payment for Booking the Field</h1>
+    </header>
+
+    <section>
+        <h2>{{ field.name }}</h2>
+        <p><strong>Address:</strong> {{ field.address }}</p>
+        <p><strong>Price per Hour:</strong> {{ field.price_per_hour }} USD</p>
+        <p><strong>Description:</strong> {{ field.description }}</p>
+    </section>
+
+    <section>
+        <h3>Would you like to pay now?</h3>
+        <form action="{% url 'payment' field_id=field.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Pay with PayPal</button>
+        </form>
+    </section>
+
+    <footer>
+        <p><a href="{% url 'payment_cancel' %}">Cancel Payment</a></p>
+    </footer>
+</body>
+</html>

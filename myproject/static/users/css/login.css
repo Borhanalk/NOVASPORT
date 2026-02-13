@@ -1,0 +1,172 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* نص أبيض */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Login Container */
+.login-container {
+    width: 80%; /* عرض الحاوية */
+    max-width: 900px; /* أقصى عرض للحاوية */
+    min-height: 500px; /* ارتفاع أقل قليلاً من صفحة التسجيل */
+    background: linear-gradient(145deg, #1a1a1a, #333); /* تدرج لوني للخلفية */
+    border-radius: 20px; /* زوايا مستديرة */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9), inset 0 0 10px #32CD32; /* تأثير داخلي وخارجي */
+    padding: 60px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* مسافة بين العناصر */
+    position: relative; /* لتحديد مواضع العناصر الإضافية */
+}
+
+/* Decorative Circle */
+.login-container::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #32CD32 0%, transparent 70%);
+    top: -50px;
+    left: -50px;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.login-container::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #32CD32 0%, transparent 70%);
+    bottom: -80px;
+    right: -80px;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+/* Title Styling */
+.login-container h1 {
+    font-size: 42px; /* تكبير النص */
+    margin-bottom: 10px;
+    color: #32CD32; /* لون أخضر */
+    text-shadow: 3px 3px 8px rgba(50, 205, 50, 0.8), 0 0 10px #32CD32;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط أفقياً */
+    justify-content: center; /* توسيط رأسياً */
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Input Fields */
+.input-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-container label {
+    font-size: 18px;
+    color: #32CD32; /* لون أخضر */
+    margin-bottom: 10px;
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(50, 205, 50, 0.5);
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 3px solid #32CD32; /* إطار أخضر */
+    border-radius: 10px;
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* نص أبيض */
+    box-shadow: inset 0 0 8px rgba(50, 205, 50, 0.6), 0 0 10px rgba(50, 205, 50, 0.4);
+    transition: all 0.3s ease;
+}
+
+.input-container input::placeholder {
+    color: #888; /* لون نص رمادي للـ placeholder */
+    font-style: italic;
+}
+
+.input-container input:focus {
+    border-color: #fff; /* إطار أبيض عند التركيز */
+    box-shadow: inset 0 0 12px rgba(50, 205, 50, 0.8), 0 0 15px rgba(50, 205, 50, 0.6);
+    transform: scale(1.02);
+    outline: none;
+}
+
+.input-container input:hover {
+    border-color: #228B22; /* إطار أخضر داكن عند التمرير */
+    box-shadow: inset 0 0 12px rgba(34, 139, 34, 0.8), 0 0 15px rgba(34, 139, 34, 0.6);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(90deg, #32CD32, #228B22); /* أخضر مشابه للعشب */
+    color: #000;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(50, 205, 50, 0.8);
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #228B22, #32CD32); /* أخضر مشابه للعشب */
+    color: #fff;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(50, 205, 50, 0.9);
+}
+
+/* Additional Links */
+.additional-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* توسيط الروابط */
+    gap: 20px; /* مسافة بين الروابط */
+}
+
+.additional-links a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #32CD32; /* لون أخضر */
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.additional-links a:hover {
+    color: #fff;
+    background: #32CD32; /* لون أخضر */
+    border-color: #32CD32;
+    transform: scale(1.1);
+}

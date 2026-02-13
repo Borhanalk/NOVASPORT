@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post">
+            {% csrf_token %} <!-- CSRF Token for security -->
+            
+            <!-- Username Field -->
+            <div class="input-container">
+                <label for="username">Username</label>
+                {{ form.username }} <!-- Django form field for username -->
+            </div>
+
+            <!-- Password Field -->
+            <div class="input-container">
+                <label for="password">Password</label>
+                {{ form.password }} <!-- Django form field for password -->
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Additional Links -->
+        <div class="additional-links">
+            <a href="{% url 'forgot_password' %}" class="btn">Forgot Password?</a>
+            <a href="{% url 'sign-up' %}" class="btn">Sign Up</a>
+            <a href="{% url 'home' %}" class="btn">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

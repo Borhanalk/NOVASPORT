@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upcoming Events - NOVA SPORT</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/upcoming_events.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Upcoming Events</h1>
+        <section class="events-list">
+            {% if events.exists %}
+                {% for event in events %}
+                    <article class="event-card">
+                        <h2 class="event-title">{{ event.title }}</h2>
+                        <p><strong>Date:</strong> {{ event.date|date:"F j, Y, g:i a" }}</p>
+                        <p><strong>Location:</strong> {{ event.location }}</p>
+                        <p class="event-description">{{ event.description }}</p>
+                        {% if event.image %}
+                            <img class="event-image" src="{{ event.image.url }}" alt="{{ event.title }}" />
+                        {% endif %}
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p>No upcoming events available at the moment. Stay tuned!</p>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>

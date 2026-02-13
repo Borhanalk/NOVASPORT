@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Responses</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/css/check_response.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Check Responses</h1>
+            <div class="back-home">
+                <a href="{% url 'main' %}" class="btn btn-link">Back Home</a>
+            </div>
+        </header>
+
+        <main>
+            {% if responses %}
+            <h2>Your Help Requests</h2>
+            <ul>
+                {% for response in responses %}
+                <li>
+                    <strong>Message:</strong> {{ response.message }}<br>
+                    <strong>Reply:</strong> {{ response.reply|default:"No reply yet" }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No responses found for your account.</p>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

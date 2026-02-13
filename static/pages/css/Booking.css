@@ -1,0 +1,155 @@
+body, h1, h2, h3, p, form, button, select, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+.filters {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.filters h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.filters label {
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
+}
+
+.filters select, 
+.filters input, 
+.filters button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filters button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.filters button:hover {
+    background-color: #0056b3;
+}
+
+.available-fields {
+    margin-bottom: 20px;
+}
+
+.available-fields h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.fields-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.field {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.field h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.field p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.field .book-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.field .book-btn:hover {
+    background-color: #218838;
+}
+
+.booking-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.booking-form p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.booking-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.booking-form button:hover {
+    background-color: #0056b3;
+}

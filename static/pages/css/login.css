@@ -1,0 +1,97 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #000; /* Black text for contrast */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Login Container Styling */
+.login-container {
+    background-color: #fff; /* White container */
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Header Styling */
+.login-container h1 {
+    font-size: 24px;
+    color: #007bff; /* Blue heading */
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+}
+
+/* Form Elements */
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+/* Submit Button */
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px; /* Oval shape */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Additional Links */
+.additional-links {
+    margin-top: 20px;
+}
+
+.additional-links a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff; /* Blue links */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px; /* Oval shape */
+    transition: background-color 0.3s ease;
+}
+
+.additional-links a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Mobile Responsive */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    form button, .additional-links a {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}

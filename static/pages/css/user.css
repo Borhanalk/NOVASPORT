@@ -1,0 +1,47 @@
+/* خلفية الصفحة */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/background.webp'); /* مسار الصورة */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+/* عنوان الصفحة */
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* الفقرة */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+/* تصميم الأزرار */
+a {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px; /* يجعل الزر بيضاويًا */
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+a:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* تكبير الزر قليلاً عند التحويم */
+}

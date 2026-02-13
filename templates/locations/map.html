@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خريطة الأماكن</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="{% static 'locations/css/styles.css' %}">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>مرحبًا بك في خريطة الأماكن!</h1>
+        </header>
+        <main>
+            <div id="map"></div>
+        </main>
+        <footer>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="{% static 'locations/js/scripts.js' %}"></script>
+</body>
+</html>

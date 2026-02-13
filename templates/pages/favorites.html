@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Fields</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/favorites.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% if user.is_authenticated %}
+            <h1>My Favorite Fields</h1>
+            
+            {% if favorite_fields %}
+            <ul class="favorite-list">
+                {% for field in favorite_fields %}
+                <li class="favorite-item">
+                    <h2>{{ field.name }}</h2>
+                    {% if field.image %}
+                    <img src="{{ field.image.url }}" alt="{{ field.name }}" class="field-image">
+                    {% endif %}
+                    <p><strong>Type:</strong> {{ field.get_field_type_display }}</p>
+                    <p><strong>Address:</strong> {{ field.address }}</p>
+                    <p><strong>Description:</strong> {{ field.description|default:"No description available." }}</p>
+                    <a href="{% url 'field_detail' field.id %}" class="details-button">View Details</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have not added any fields to your favorites yet.</p>
+            {% endif %}
+        {% else %}
+            <h1>You are a guest</h1>
+            <p>Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'sign-up' %}">sign up</a> to access your favorite fields.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

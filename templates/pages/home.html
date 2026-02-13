@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/home.css' %}">
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to Our Website</h1>
+        <p class="description">
+            Explore the best features we have to offer. Choose your login option below
+            and start your journey with us!
+        </p>
+        <div class="button-group">
+            <a href="/admin/" class="button admin">Admin</a>
+            <a href="{% url 'sign-up' %}" class="button user">User</a>
+            <a href="{% url 'save_guest' %}" class="button guest">Continue as Guest</a>
+        </div>
+    </div>
+</body>
+</html>

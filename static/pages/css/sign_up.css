@@ -1,0 +1,114 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    background-color: #000; /* خلفية سوداء */
+    color: #fff; /* نص أبيض */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sign-Up Container */
+.sign-up-container {
+    width: 90%;
+    max-width: 400px;
+    background: #1a1a1a; /* خلفية رمادية داكنة */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Title Styling */
+.sign-up-container h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffd700; /* لون أصفر */
+    text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.8);
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input Fields */
+.input-container label {
+    font-size: 16px;
+    color: #ffd700; /* لون أصفر */
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ffd700; /* إطار أصفر */
+    border-radius: 8px;
+    background: #000; /* خلفية سوداء */
+    color: #fff; /* نص أبيض */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.input-container input:focus {
+    border-color: #fff; /* إطار أبيض عند التركيز */
+    outline: none;
+}
+
+/* Error Messages */
+.error-message {
+    font-size: 12px;
+    color: #ff4d4d; /* لون أحمر للخطأ */
+    visibility: hidden;
+    margin-top: 5px;
+}
+
+.error-message.visible {
+    visibility: visible;
+}
+
+/* Buttons */
+button {
+    background-color: #ffd700; /* لون أصفر */
+    color: #000; /* نص أسود */
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #fff; /* لون أبيض عند التمرير */
+    color: #000; /* نص أسود */
+    transform: translateY(-3px);
+}
+
+/* Additional Links */
+.additional-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.additional-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #ffd700; /* لون أصفر */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.additional-links a:hover {
+    color: #fff; /* لون أبيض عند التمرير */
+    transform: translateX(5px);
+}

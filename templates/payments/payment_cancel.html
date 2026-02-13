@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Cancelled</title>
+</head>
+<body>
+    <header>
+        <h1>Payment Cancelled</h1>
+    </header>
+
+    <section>
+        <p>Your payment has been cancelled. If you would like to try again, you can go back to the payment page.</p>
+        <p><a href="{% url 'payment' field_id=field_id %}">Go Back to Payment Page</a></p>
+    </section>
+
+    <footer>
+        <p><a href="{% url 'payment_cancel' %}">Cancel Payment</a></p>
+    </footer>
+</body>
+</html>

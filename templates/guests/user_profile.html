@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'guests/css/user_profile.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            {% if user.is_authenticated %}
+                <h2>Welcome, {{ user.username }}</h2>
+            {% elif guest %}
+                <h2>Welcome, {{ guest.name }}</h2>
+            {% else %}
+                <h2>Welcome, Guest</h2>
+            {% endif %}
+            <ul class="menu">
+                <li><a href="{% url 'main' %}">Home</a></li>
+                <li>
+                    <form action="{% url 'logout' %}" method="post" class="logout-form">
+                        {% csrf_token %}
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <div class="profile-header">
+                <img src="{% static 'images/avatar.webp' %}" alt="Profile Picture" class="profile-picture">
+                {% if user.is_authenticated %}
+                    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                    <p>{{ user.email }}</p>
+                {% elif guest %}
+                    <h1>{{ guest.name }}</h1>
+                    <p>Guest Email: Not available</p>
+                {% endif %}
+            </div>
+            <div class="profile-info">
+                <h3>Account Details</h3>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><strong>Username:</strong> {{ user.username }}</li>
+                        <li><strong>Email:</strong> {{ user.email }}</li>
+                        <li><strong>Date Joined:</strong> {{ user.date_joined|date:"F d, Y" }}</li>
+                        <li><strong>Last Login:</strong> {{ user.last_login|date:"F d, Y H:i" }}</li>
+                    {% elif guest %}
+                        <li><strong>Name:</strong> {{ guest.name }}</li>
+                        <li><strong>Status:</strong> Guest User</li>
+                        <li><strong>Access:</strong> Limited Access</li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- New Activity Section -->
+            <div class="profile-activity">
+                <h3>Recent Activities</h3>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li><strong>Last Viewed Page:</strong> Dashboard</li>
+                        <li><strong>Profile Updates:</strong> {{ user.last_update|default:"No recent updates" }}</li>
+                    {% elif guest %}
+                        <li>Guests cannot view recent activities.</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; {{ current_year }} UserProfile Inc. All rights reserved.</p>
+    </footer>
+</body>
+</html>

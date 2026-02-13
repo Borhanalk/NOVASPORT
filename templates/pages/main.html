@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/main.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <header>
+                <h1>Welcome to NOVA-SPORT</h1>
+                <p>Your gateway to the best sports fields!</p>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li><a href="{% url 'find_fields' %}">Find Fields</a></li>
+                    <li><a href="{% url 'popular_fields' %}">Popular Fields</a></li>
+                    <li><a href="{% url 'favorites_list' %}">Favorites</a></li>
+                    <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                    <li><a href="{% url 'upcoming_events' %}">Upcoming Events</a></li>
+                    <li><a href="{% url 'about_us' %}">About Us</a></li>
+                    <li><a href="{% url 'check_response' %}" class="check-response-button">Check Response</a></li> <!-- New Button -->
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Right Section -->
+        <main class="right-section">
+            <section id="map" class="map"></section>
+        </main>
+    </div>
+
+    <!-- Leaflet and JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="{% static 'locations/js/main.js' %}"></script>
+</body>
+</html>

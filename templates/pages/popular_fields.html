@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Fields</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/popular_fields.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Popular Fields</h1>
+            <p class="intro">Discover the most popular fields around you! Browse, explore, and find your favorite spot.</p>
+            <div class="back-home">
+                <a href="{% url 'main' %}" class="button">Back Home</a>
+            </div>
+        </header>
+        <main>
+            <div class="fields-list">
+                {% for field in fields %}
+                <div class="field-card">
+                    {% if field.image %}
+                    <img src="{{ field.image.url }}" alt="{{ field.name }}" class="field-image">
+                    {% endif %}
+                    <div class="field-info">
+                        <h2>{{ field.name }}</h2>
+                        <p><strong>Type:</strong> {{ field.get_field_type_display }}</p>
+                        <p><strong>Average Rating:</strong> {{ field.average_rating|default:"No ratings yet" }}</p>
+                        <p><strong>Address:</strong> {{ field.address }}</p>
+                        <a href="{% url 'field_detail' field.id %}" class="details-button">View Details</a>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="no-fields">No fields found. Try exploring other categories or adjust your search filters.</p>
+                {% endfor %}
+            </div>
+        </main>
+        <footer>
+            <p>&copy; {{ current_year }} ExploreFields Inc. | Designed for sports enthusiasts.</p>
+        </footer>
+    </div>
+</body>
+</html>

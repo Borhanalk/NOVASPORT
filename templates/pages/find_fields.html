@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Fields</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/find_fields.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Fields</h1>
+
+        <!-- زر العودة إلى الصفحة الرئيسية -->
+        <div class="home-button">
+            <a href="{% url 'main' %}" class="button">Back Home</a>
+        </div>
+
+        <!-- الفلاتر -->
+        <form class="filters" method="get">
+            <input type="text" name="search" placeholder="Search by name..." value="{{ search_query }}">
+            <select name="type">
+                <option value="">Filter by type</option>
+                <option value="football" {% if field_type == "football" %}selected{% endif %}>Football</option>
+                <option value="basketball" {% if field_type == "basketball" %}selected{% endif %}>Basketball</option>
+                <option value="volleyball" {% if field_type == "volleyball" %}selected{% endif %}>Volleyball</option>
+                <option value="tennis" {% if field_type == "tennis" %}selected{% endif %}>Tennis</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- عرض الملاعب -->
+        <div class="field-card">
+            {% for field in fields %}
+            <div class="card">
+                {% if field.image %}
+                <img src="{{ field.image.url }}" alt="{{ field.name }}">
+                {% endif %}
+                <h3>{{ field.name }}</h3>
+                <p><strong>Type:</strong> {{ field.get_field_type_display }}</p>
+                <p><strong>Address:</strong> {{ field.address }}</p>
+                <a href="{% url 'field_detail' field.id %}">View Details</a>
+            </div>
+            {% empty %}
+            <p>No fields found. Try adjusting your filters.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

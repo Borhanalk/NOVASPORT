@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ field.name }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/field_detail.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Success/Error Messages -->
+        {% if success_message %}
+        <div class="alert alert-success">{{ success_message }}</div>
+        {% endif %}
+        {% if error_message %}
+        <div class="alert alert-danger">{{ error_message }}</div>
+        {% endif %}
+
+        <!-- Field Title -->
+        <h1 class="field-title">{{ field.name }}</h1>
+
+        <!-- Field Image -->
+        {% if field.image %}
+        <img src="{{ field.image.url }}" alt="{{ field.name }}" class="field-image">
+        {% endif %}
+
+        <!-- Field Details -->
+        <p><strong>Type:</strong> {{ field.get_field_type_display }}</p>
+        <p><strong>Address:</strong> {{ field.address }}</p>
+        <p><strong>Description:</strong> {{ field.description }}</p>
+        <p><strong>Average Rating:</strong> {{ field.average_rating|default:"No ratings yet" }}</p>
+
+        <!-- Payment Section -->
+        <div class="payment-info">
+            {% if field.requires_payment %}
+            <p><strong>Price per Hour:</strong> ${{ field.price_per_hour }}</p>
+
+            <!-- Payment Form -->
+            <form action="{% url 'payment' field.id %}" method="post" id="payment-form">
+                {% csrf_token %}
+                <input type="hidden" name="payment_intent_id" value="{{ client_secret }}">
+
+                <div id="card-element">
+                    <!-- Stripe credit card element will render here -->
+                </div>
+                <div id="card-errors" role="alert"></div>
+
+                <button type="submit" class="btn btn-success" id="submit">Proceed to Payment</button>
+            </form>
+            <script src="https://js.stripe.com/v3/"></script>
+            <script>
+                var stripe = Stripe("{{ stripe_publishable_key }}");
+                var elements = stripe.elements();
+                var card = elements.create("card");
+                card.mount("#card-element");
+
+                var form = document.getElementById("payment-form");
+                form.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    stripe.confirmCardPayment(
+                        "{{ client_secret }}",
+                        { payment_method: { card: card } }
+                    ).then(function(result) {
+                        if (result.error) {
+                            document.getElementById("card-errors").textContent = result.error.message;
+                        } else if (result.paymentIntent.status === "succeeded") {
+                            form.submit();
+                        }
+                    });
+                });
+            </script>
+            {% else %}
+            <p><strong>Payment:</strong> This field does not require payment.</p>
+            {% endif %}
+        </div>
+
+        <!-- Field Availability -->
+        <div class="status {% if is_available %}available{% else %}occupied{% endif %}">
+            <p>The field is <strong>{% if is_available %}Available{% else %}Occupied{% endif %}</strong>.</p>
+        </div>
+
+        <!-- Booking Form -->
+        <form method="post" class="booking-form">
+            {% csrf_token %}
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Select Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="duration">Duration (in hours):</label>
+            <select name="duration" id="duration" required>
+                {% for hour in hours_range %}
+                <option value="{{ hour }}">{{ hour }} Hour{% if hour > 1 %}s{% endif %}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">Book Field</button>
+        </form>
+
+        <!-- Rating Form -->
+        <div class="rating">
+            <form method="post">
+                {% csrf_token %}
+                <label for="rating">Rate this Field:</label>
+                <select name="rating" id="rating" required>
+                    {% for rate in rating_range %}
+                    <option value="{{ rate }}">{{ rate }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-secondary">Submit Rating</button>
+            </form>
+        </div>
+
+        <!-- Favorite Form -->
+        <div class="favorite">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="favorite" value="{% if not is_favorite %}1{% else %}0{% endif %}">
+                <button type="submit" class="btn {% if is_favorite %}btn-danger{% else %}btn-secondary{% endif %}">
+                    {% if is_favorite %}Remove from Favorites{% else %}Add to Favorites{% endif %}
+                </button>
+            </form>
+        </div>
+
+        <!-- Share Links -->
+        <div class="share-links">
+            <p><a href="{{ field.get_share_link }}" target="_blank" class="btn btn-link">Share on WhatsApp</a></p>
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-to-main">
+            <a href="{% url 'main' %}" class="btn btn-link">Back Home</a>
+        </div>
+    </div>
+</body>
+</html>

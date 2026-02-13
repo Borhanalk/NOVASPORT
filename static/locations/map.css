@@ -1,0 +1,63 @@
+/* تقسيم الصفحة إلى نصفين */
+.container {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* تنسيق النصف الأيسر (الخريطة) */
+.left {
+    width: 50%;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق النصف الأيمن (القائمة) */
+.right {
+    width: 50%;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    border-left: 2px solid #e9ecef;
+}
+
+#nearby-fields h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #343a40;
+    text-align: center;
+}
+
+#nearby-fields ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#nearby-fields ul li {
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    color: #495057;
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+#nearby-fields ul li:last-child {
+    margin-bottom: 0;
+}
+
+#nearby-fields ul li:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+}

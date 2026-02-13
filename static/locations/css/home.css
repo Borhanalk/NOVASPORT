@@ -1,0 +1,114 @@
+/* تصميم الصفحة الرئيسية */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* القسم الأيسر */
+.left-section {
+    width: 30%;
+    padding: 20px;
+    background-color: #3b3f44;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.left-section p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.left-section .button {
+    display: inline-block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.left-section .button:hover {
+    background-color: #005f73;
+}
+
+/* القسم الأيمن */
+.right-section {
+    width: 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.map-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#search-box {
+    width: 60%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#filter-select {
+    width: 30%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#search-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #008cba;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-btn:hover {
+    background-color: #005f73;
+}
+
+/* الخريطة */
+#map {
+    width: 100%;
+    height: calc(100% - 60px);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    zoom: 1.2; /* تقريب الخريطة */
+}

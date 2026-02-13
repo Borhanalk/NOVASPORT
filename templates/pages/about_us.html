@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/about_us.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>About Us</h1>
+            <p>Meet the talented team behind our project. Feel free to reach out to any of us!</p>
+            <div class="back-home">
+                <a href="{% url 'main' %}" class="btn btn-link">Back Home</a>
+             </div>
+        </header>
+
+        <main class="team">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <img src="{% static 'images/member1.jpg' %}" alt="Team Member 1" class="member-photo">
+                <h2>Borhan Kean</h2>
+                <p><strong>Email:</strong> borhake@ac.sce.ac.il</p>
+                <p><strong>Phone:</strong> 0504917574</p>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <img src="{% static 'images/member2.jpg' %}" alt="Team Member 2" class="member-photo">
+                <h2>Adham Abo Swees</h2>
+                <p><strong>Email:</strong> Adham@ac.sce.ac.il</p>
+                <p><strong>Phone:</strong> 0502852030</p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <img src="{% static 'images/member3.jpg' %}" alt="Team Member 3" class="member-photo">
+                <h2>Safaa Abo Agag</h2>
+                <p><strong>Email:</strong> Safaa@ac.sce.ac.il</p>
+                <p><strong>Phone:</strong> +456 789 1234</p>
+            </div>
+
+            <!-- Team Member 4 -->
+            <div class="team-member">
+                <img src="{% static 'images/member4.jpg' %}" alt="Team Member 4" class="member-photo">
+                <h2>Ameer Abo Rabeaa</h2>
+                <p><strong>Email:</strong> Ameer@ac.sce.ac.il</p>
+                <p><strong>Phone:</strong> 0522806945</p>
+            </div>
+        </main>
+
+        <section class="help-request">
+            <h2>Need Assistance?</h2>
+            <form action="{% url 'handle_help_request' %}" method="post">
+                {% csrf_token %}
+                <label for="help-message">Your Message:</label>
+                <textarea id="help-message" name="help-message" rows="4" placeholder="Type your message here..." required></textarea>
+                <button type="submit" class="send-button">Send Request</button>
+            </form>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+        
+        
+        <footer>
+            <p>&copy; 2025 Your Project Name. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* إعدادات أساسية للصفحة */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc; /* خلفية فاتحة لتكون مريحة للعين */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 28px;
+    color: #27ae60; /* اللون الأخضر مشابه للعشب */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* قائمة الأحداث */
+.events-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.event-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* ظل أكبر عند التمرير */
+}
+
+.event-title {
+    font-size: 22px;
+    color: #2ecc71; /* اللون الأخضر للنصوص */
+    margin-bottom: 10px;
+}
+
+.event-description {
+    font-size: 16px;
+    color: #34495e; /* لون محايد للنصوص الثانوية */
+    margin-bottom: 15px;
+}
+
+.event-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* تحسين النص */
+strong {
+    font-weight: bold;
+    color: #27ae60; /* اللون الأخضر للعناصر البارزة */
+}
+
+/* استجابة مع الهواتف */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .event-card {
+        padding: 15px;
+    }
+
+    .event-title {
+        font-size: 20px;
+    }
+
+    .event-description {
+        font-size: 14px;
+    }
+}

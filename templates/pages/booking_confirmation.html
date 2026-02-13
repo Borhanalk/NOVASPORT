@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pages/css/field_detail.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Your booking for {{ field.name }} has been confirmed!</h1>
+        <p>Thank you for booking this field. You can now proceed with your activity on the scheduled date and time.</p>
+        <a href="{% url 'main' %}" class="btn btn-primary">Back to Home</a>
+    </div>
+</body>
+</html>

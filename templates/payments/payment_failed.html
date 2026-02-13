@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+</head>
+<body>
+    <header>
+        <h1>Payment Failed!</h1>
+    </header>
+
+    <section>
+        <p>Sorry, an error occurred during the payment process. Please try again.</p>
+        <p><a href="{% url 'payment' field_id=field_id %}">Try Paying Again</a></p>
+    </section>
+
+    <footer>
+        <p><a href="{% url 'payment_cancel' %}">Cancel Payment</a></p>
+    </footer>
+</body>
+</html>

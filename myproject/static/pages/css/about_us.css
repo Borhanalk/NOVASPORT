@@ -1,0 +1,199 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #fff;
+}
+
+/* Container Styling */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+    background: linear-gradient(145deg, #111, #222);
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(50, 205, 50, 0.5);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Styling */
+.container header h1 {
+    font-size: 3rem;
+    color: #32cd32;
+    text-shadow: 0 0 15px rgba(50, 205, 50, 0.9);
+    margin-bottom: 20px;
+}
+
+.container header p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.back-home {
+    margin-bottom: 20px;
+}
+
+.back-home a {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(90deg, #32cd32, #228b22);
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(50, 205, 50, 0.6);
+    transition: all 0.3s ease;
+}
+
+.back-home a:hover {
+    background: linear-gradient(90deg, #228b22, #32cd32);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(50, 205, 50, 0.8);
+}
+
+/* Team Section */
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 20px 0;
+}
+
+.team-member {
+    background: linear-gradient(145deg, #111, #222);
+    border-radius: 15px;
+    padding: 20px;
+    width: 280px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(50, 205, 50, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(50, 205, 50, 0.8);
+}
+
+.team-member img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 3px solid #32cd32;
+    transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+    transform: scale(1.1);
+}
+
+.team-member h2 {
+    font-size: 1.5rem;
+    color: #32cd32;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+/* Help Request Section */
+.help-request {
+    background: linear-gradient(145deg, #111, #222);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(50, 205, 50, 0.5);
+    margin: 30px 0;
+    text-align: center;
+}
+
+.help-request h2 {
+    font-size: 1.8rem;
+    color: #32cd32;
+    margin-bottom: 20px;
+}
+
+.help-request label {
+    font-size: 1.1rem;
+    color: #ccc;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.help-request textarea {
+    width: 90%;
+    max-width: 600px;
+    height: 120px;
+    padding: 15px;
+    font-size: 1rem;
+    border: 2px solid #32cd32;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    box-shadow: inset 0 0 10px rgba(50, 205, 50, 0.6);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+.help-request textarea:focus {
+    border-color: #fff;
+    box-shadow: inset 0 0 12px rgba(50, 205, 50, 0.8);
+    outline: none;
+}
+
+.help-request .send-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    background: linear-gradient(90deg, #32cd32, #228b22);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(50, 205, 50, 0.6);
+    transition: all 0.3s ease;
+}
+
+.help-request .send-button:hover {
+    background: linear-gradient(90deg, #228b22, #32cd32);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(50, 205, 50, 0.8);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: #111;
+    border-top: 1px solid #444;
+}
